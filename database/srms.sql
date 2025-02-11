@@ -1,22 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.6
--- https://www.phpmyadmin.net/
+-- version 2.11.6
+-- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 10, 2018 at 04:35 PM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.2.0
+-- Generation Time: Feb 11, 2025 at 12:05 PM
+-- Server version: 5.0.51
+-- PHP Version: 5.2.6
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
 -- Database: `srms`
@@ -30,7 +21,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin_login` (
   `userid` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL
+  `password` varchar(30) NOT NULL,
+  PRIMARY KEY  (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
@@ -48,8 +40,19 @@ INSERT INTO `admin_login` (`userid`, `password`) VALUES
 
 CREATE TABLE `class` (
   `name` varchar(30) NOT NULL,
-  `id` int(3) NOT NULL
+  `id` int(3) NOT NULL,
+  PRIMARY KEY  (`name`),
+  UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `class`
+--
+
+INSERT INTO `class` (`name`, `id`) VALUES
+('A', 1),
+('B', 2),
+('c', 3);
 
 -- --------------------------------------------------------
 
@@ -67,8 +70,19 @@ CREATE TABLE `result` (
   `p4` int(3) NOT NULL,
   `p5` int(3) NOT NULL,
   `marks` int(3) NOT NULL,
-  `percentage` float NOT NULL
+  `percentage` float NOT NULL,
+  KEY `class` (`class`),
+  KEY `name` (`name`,`rno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `result`
+--
+
+INSERT INTO `result` (`name`, `rno`, `class`, `p1`, `p2`, `p3`, `p4`, `p5`, `marks`, `percentage`) VALUES
+('jayesh mali', 19, 'A', 55, 56, 57, 58, 59, 285, 57),
+('durgesh', 18, 'A', 88, 56, 86, 36, 65, 331, 66.2),
+('shailesh', 1, 'c', 56, 89, 86, 45, 75, 351, 70.2);
 
 -- --------------------------------------------------------
 
@@ -79,39 +93,40 @@ CREATE TABLE `result` (
 CREATE TABLE `students` (
   `name` varchar(30) NOT NULL,
   `rno` int(3) NOT NULL,
-  `class_name` varchar(30) NOT NULL
+  `class_name` varchar(30) NOT NULL,
+  PRIMARY KEY  (`name`,`rno`),
+  KEY `class_name` (`class_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `students`
 --
 
---
--- Indexes for table `admin_login`
---
-ALTER TABLE `admin_login`
-  ADD PRIMARY KEY (`userid`);
+INSERT INTO `students` (`name`, `rno`, `class_name`) VALUES
+('durgesh', 18, 'A'),
+('jayesh mali', 19, 'A'),
+('shailesh', 1, 'c');
+
+-- --------------------------------------------------------
 
 --
--- Indexes for table `class`
+-- Table structure for table `teachers`
 --
-ALTER TABLE `class`
-  ADD PRIMARY KEY (`name`),
-  ADD UNIQUE KEY `id` (`id`);
+
+CREATE TABLE `teachers` (
+  `name` char(20) NOT NULL,
+  `tid` int(5) NOT NULL,
+  `class_name` char(2) NOT NULL,
+  `pass` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for table `result`
+-- Dumping data for table `teachers`
 --
-ALTER TABLE `result`
-  ADD KEY `class` (`class`),
-  ADD KEY `name` (`name`,`rno`);
 
---
--- Indexes for table `students`
---
-ALTER TABLE `students`
-  ADD PRIMARY KEY (`name`,`rno`),
-  ADD KEY `class_name` (`class_name`);
+INSERT INTO `teachers` (`name`, `tid`, `class_name`, `pass`) VALUES
+('jayesh', 1, 'A', '31724253'),
+('suresh', 0, '', '123');
 
 --
 -- Constraints for dumped tables
@@ -122,15 +137,11 @@ ALTER TABLE `students`
 --
 ALTER TABLE `result`
   ADD CONSTRAINT `result_ibfk_1` FOREIGN KEY (`class`) REFERENCES `class` (`name`),
-  ADD CONSTRAINT `result_ibfk_2` FOREIGN KEY (`name`,`rno`) REFERENCES `students` (`name`, `rno`);
+  ADD CONSTRAINT `result_ibfk_2` FOREIGN KEY (`name`, `rno`) REFERENCES `students` (`name`, `rno`);
 
 --
 -- Constraints for table `students`
 --
 ALTER TABLE `students`
   ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`class_name`) REFERENCES `class` (`name`);
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
