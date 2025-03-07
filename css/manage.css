@@ -1,22 +1,24 @@
-/*table*/
-.main{
-	display: grid;
-	justify-content: center;
-	padding: 30px;
+/* General table styles */
+.main {
+    display: grid;
+    justify-content: center;
+    padding: 30px;
 }
-.main table{
-	margin: 50px auto;
+
+.main table {
+    margin: 50px auto;
 }
+
 .main table, th, td {
     border-collapse: collapse;
     text-align: left;
     table-layout: fixed;
     padding: 8px 30px;
-    width: 50%;
+    width: 50%; /* Default table width for larger screens */
 }
 
-.main th{
-	color: #61c232;
+.main th {
+    color: #61c232;
 }
 
 .main tr:hover {
@@ -25,4 +27,51 @@
 
 th, td {
     border-bottom: 1px solid #ddd;
+}
+
+/* Tablet and small screen responsiveness */
+@media (max-width: 768px) {
+    .main table {
+        width: 90%; /* Adjust table width for tablet screens */
+    }
+
+    th, td {
+        padding: 8px 15px; /* Reduce padding on smaller screens */
+    }
+
+    .main table, th, td {
+        font-size: 0.9rem; /* Reduce font size for smaller screens */
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .main table {
+        width: 100%; /* Table width takes full screen width on mobile */
+    }
+
+    th, td {
+        padding: 8px 10px; /* Further reduce padding for very small screens */
+    }
+
+    .main table, th, td {
+        font-size: 0.8rem; /* Further reduce font size for small screens */
+    }
+
+    /* Stack the table headers and values for mobile devices */
+    th, td {
+        display: block;
+        width: 100%; /* Make table headers and data block level */
+        text-align: right; /* Align text to the right for better readability */
+    }
+
+    th {
+        background-color: #333; /* Optional: change background color for headers on mobile */
+        color: #fff;
+    }
+
+    td {
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 8px; /* Add margin between rows for mobile */
+    }
 }

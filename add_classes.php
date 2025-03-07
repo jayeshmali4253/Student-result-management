@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +21,7 @@
 
     <div class="nav">
         <ul>
+           
         <li class="dropdown" onclick="toggleDisplay('1')">
                 <a href="" class="dropbtn">Teacher &nbsp
                     <span class="fa fa-angle-down"></span>
@@ -29,7 +31,7 @@
                     <a href="manage_teacher.php">Manage Teacher</a>
                 </div>
             </li>
-            <li class="dropdown" onclick="toggleDisplay('1')">
+                <li class="dropdown" onclick="toggleDisplay('1')">
                 <a href="" class="dropbtn">Classes &nbsp
                     <span class="fa fa-angle-down"></span>
                 </a>

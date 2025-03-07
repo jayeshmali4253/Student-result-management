@@ -12,15 +12,16 @@ if (isset($_POST["tid"], $_POST["password"])) {
 
     // Check if query ran successfully
     if (!$result) {
-        die("Query Failed: " . mysqli_error($conn)); // Debugging: Display SQL error
+        die("Query Failed: " . mysqli_error($conn)); 
     }
 
     $row = mysqli_fetch_assoc($result);
 
     if ($row) {
-        $_SESSION['teacher_id'] = $row['tid']; // Store teacher ID in session
-        $_SESSION['teacher_name'] = $row['name']; // Store teacher's name in session
-        header("Location: dashboard_teacher.php"); // Redirect to teacher dashboard
+        $_SESSION['teacher_id'] = $row['tid']; 
+        $_SESSION['teacher_name'] = $row['name']; 
+        $_SESSION['role']='teacher';
+        header("Location: dashboard_teacher.php"); 
         exit();
     } else {
         $error = "Invalid Teacher ID or Password";

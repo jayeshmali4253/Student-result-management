@@ -1,4 +1,5 @@
-input,select,option{
+/* General styles for input, select, and option */
+input, select, option {
     width: 100%;
     padding: 12px 20px;
     margin: 10px 0;
@@ -6,39 +7,81 @@ input,select,option{
     display: block;
 }
 
-input[type=text],input[type=password],select{
+/* Input fields and select dropdown */
+input[type=text], input[type=password], select {
     background-color: #474b4f;
     color: white;
     border: none;
-    font-size: 100%;
+    font-size: 1rem; /* Use relative units for better scaling */
     letter-spacing: 0.2em;
 }
 
-input[type=submit]{
+/* Submit button styling */
+input[type=submit] {
     background-color: #474b4f;
     color: white;
     border: none;
     transition-duration: 0.4s;
     cursor: pointer;
-    font-size: 16px;
-
+    font-size: 1rem; /* Use relative units */
 }
 
-input[type=submit]:hover{
+/* Hover effect on submit button */
+input[type=submit]:hover {
     background-color: #86c232;
-    color: white
+    color: white;
 }
 
-fieldset{
-    font-size: 20px;
+/* Fieldset styling */
+fieldset {
+    font-size: 1.25rem; /* Use relative units */
     border-radius: 10px;
     border-width: 5px;
     border-style: solid;
     padding: 20px;
-    margin: 0 15%;
+    margin: 0 10%; /* Adjusted for better spacing on mobile */
 }
 
+/* Error message styling */
 .error {
     color: red;
-    margin: 30px 0 0 30vh;
+    margin-top: 20px; /* Adjusted margin for better positioning */
+    text-align: center; /* Ensure error message is centered */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    /* Adjust fieldset margin and padding for smaller screens */
+    fieldset {
+        margin: 0 5%;
+        padding: 15px;
+    }
+
+    /* Reduce font size for inputs and buttons on smaller screens */
+    input[type=text], input[type=password], select, input[type=submit] {
+        font-size: 0.875rem; /* Slightly smaller font size for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjust font sizes further for very small screens */
+    input[type=text], input[type=password], select, input[type=submit] {
+        font-size: 0.75rem; /* Smaller font size for very small screens */
+    }
+
+    /* Adjust padding for input fields and buttons */
+    input[type=text], input[type=password], select, input[type=submit] {
+        padding: 10px 15px; /* Less padding on very small screens */
+    }
+
+    /* Reduce the width of the fieldset on small screens */
+    fieldset {
+        margin: 0 5%;
+        padding: 10px;
+    }
+
+    /* Adjust the error message margin for smaller screens */
+    .error {
+        margin-top: 10px;
+    }
 }

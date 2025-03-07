@@ -72,6 +72,7 @@
         
         if($count==1) {
             $_SESSION['login_user']=$username;
+            $_SESSION['role']='admin';
             header("Location: dashboard.php");
         }else {
             echo '<script language="javascript">';

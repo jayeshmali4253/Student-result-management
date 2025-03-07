@@ -1,93 +1,189 @@
-/* Background Color: #1C1C1C (Jet Black)
-Text Color: #FFD700 (Gold)
-Accent Color: #B8860B (Dark Goldenrod) */
-
-
-body{
-    margin: 0;
+/* General Styles */
+body {
     font-family: 'Roboto', sans-serif;
-    background-color: #1C1C1C;
+    background-color: lightgoldenrodyellow;
     color: darkgoldenrod;
-}
-
-.title{
-    display: grid;
-    grid-template-rows: 50px;
-    grid-template-columns: 150px 1fr 150px;
-    align-items: center;
-    padding: 20px 0;
-    text-align: center;
-}
-/* title grid */
-.logo{
-    width: 150px;
-    height: auto;
-}
-.heading{
-    font-size: 60px;
-}
-
-
-/*  */
-.main{
-    display: grid;
-    align-items: center;
-    font-size: 20px;
-    padding-top: 80px;
-}
-
-.main p{
     margin: 0;
-    font-size: 25px;
-    font-family: monospace;
-    letter-spacing: 3px;
-    line-height: 3;
+    padding: 0;
 }
 
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #B8860B;
+    color: white;
+}
 
-/* navigation bar */
-ul{
+.title .logo {
+    max-width: 100px;
+}
+
+.title .heading {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.title a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav ul {
     list-style-type: none;
-    margin: 20px 0 0 0;
+    margin: 30px 0;
     padding: 0;
     display: flex;
-    overflow: hidden;
     justify-content: space-evenly;
+    border-style: solid;
+    border-width: 1px 0;
 }
 
+.nav li {
+    position: relative;
+}
 
-li a,.dropbtn{
+.nav li a, .nav .dropbtn {
     display: inline-block;
     text-decoration: none;
     color: #B8860B;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    padding: 5px 50px;
+    padding: 5px 20px;
+    font-size: 16px;
 }
 
-li a:hover, .dropdown:hover {
+.nav li a:hover, .nav .dropdown:hover {
     background-color: #FFD700;
 }
 
-li.dropdown {
-    display: inline-block;
-}
-
-.dropdown-content{
+/* Dropdown menu */
+.dropdown-content {
     display: none;
     position: absolute;
-    background-color:  #474b4f;
+    background-color: #474b4f;
+    width: 200px;
 }
 
 .dropdown-content a {
-    color: white;
+    color: #B8860B;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-
+    padding: 10px;
+    display: block;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.main {
+    border-radius: 10px;
+    border: 5px solid;
+    padding: 20px;
+    margin: 7% 20% 0 20%;
+}
+
+.main p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #B8860B;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* For tablets */
+    .title {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .title .logo {
+        max-width: 80px;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        padding: 0;
+        text-align: center;
+    }
+
+    .nav li {
+        width: 100%;
+    }
+
+    .main {
+        margin: 5% 10%;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
+
+    /* Dropdown Adjustments */
+    .dropdown-content {
+        width: 100%;
+    }
+
+    .nav li a, .nav .dropbtn {
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* For mobile screens */
+    .title {
+        font-size: 1.4em;
+        text-align: center;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .title .logo {
+        max-width: 70px;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        padding: 0;
+        text-align: center;
+    }
+
+    .nav li {
+        width: 100%;
+    }
+
+    .nav li a, .nav .dropbtn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .main {
+        margin: 10% 5%;
+        padding: 15px;
+    }
+
+    .main p {
+        font-size: 14px;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
+
+    /* Making dropdown fit for mobile */
+    .dropdown-content {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
 }

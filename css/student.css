@@ -1,8 +1,9 @@
-body{
+/* General styles */
+body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;  
-
+    font-family: 'Roboto', sans-serif;
 }
+
 .container {
     margin: 5% 10%;
 }
@@ -10,33 +11,34 @@ body{
 .title {
     font-size: 50px;
     text-align: center;
-
 }
 
-.details{
+.details {
     font-size: 20px;
     letter-spacing: 0.1em;
 }
 
-.main{
+.main {
     font-size: 18px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 20px 25%;
 }
 
-.button{
+/* Button styling */
+.button {
     text-align: center;
 }
 
-.main p{
+.main p {
     text-align: center;
 }
+
 .main p:nth-child(1) {
     font-weight: bold;
 }
 
-.result p{
+.result p {
     font-size: 20px;
 }
 
@@ -45,9 +47,71 @@ body{
     margin: 30px 0 0 30vh;
 }
 
-/* hide buttom */
+/* Hide button during print */
 @media print {
     .button {
         display: none;
+    }
+}
+
+/* Responsive Design */
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+    .container {
+        margin: 5% 5%;  /* Adjust container margins */
+    }
+
+    .title {
+        font-size: 35px; /* Smaller title on tablets */
+    }
+
+    .details {
+        font-size: 18px; /* Slightly smaller details text */
+    }
+
+    .main {
+        grid-template-columns: 1fr; /* Single column layout on smaller screens */
+        padding: 20px 10%; /* Adjust padding for mobile */
+    }
+
+    .result p {
+        font-size: 18px; /* Smaller result text on tablets */
+    }
+
+    .error {
+        margin: 30px 0 0 10%; /* Adjust error message position */
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+    .container {
+        margin: 5%; /* Adjust container margin for small mobile screens */
+    }
+
+    .title {
+        font-size: 28px; /* Further decrease title size on mobile */
+    }
+
+    .details {
+        font-size: 16px; /* Further decrease details font size */
+    }
+
+    .main {
+        grid-template-columns: 1fr; /* Single column layout */
+        padding: 20px 5%; /* Reduce padding further */
+    }
+
+    .button {
+        padding: 10px 15px; /* Adjust button size on mobile */
+    }
+
+    .result p {
+        font-size: 16px; /* Smaller font for results on mobile */
+    }
+
+    .error {
+        margin: 30px 0 0 5%; 
     }
 }
