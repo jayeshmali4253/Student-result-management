@@ -1,0 +1,138 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Title Bar */
+.title {
+    width: 100%;
+    background-color: #B8860B; /* DarkGoldenRod */
+    color: #FFD700; /* Gold */
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+/* Main Container */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Login & Search Forms */
+.login, .search {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    border-top: 5px solid #B8860B; /* DarkGoldenRod */
+}
+
+fieldset {
+    border: none;
+}
+
+/* Form Titles */
+.heading {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #B8860B; /* DarkGoldenRod */
+}
+
+/* Input Fields */
+input[type="text"], 
+input[type="password"], 
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #B8860B; /* DarkGoldenRod */
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Buttons */
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #B8860B; /* DarkGoldenRod */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #FFD700; /* Gold */
+    color: black;
+}
+
+/* Footer */
+#footer {
+    text-align: center;
+    margin-top: 40px;
+    width: 100%;
+    padding: 20px;
+}
+
+.back-btn {
+    font-size: 20px;
+    color: #B8860B; /* DarkGoldenRod */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    color: #FFD700; /* Gold */
+}
+
+/* ✅ RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .login, .search {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    .heading {
+        font-size: 18px;
+    }
+
+    input[type="text"], input[type="password"], select, input[type="submit"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .back-btn {
+        font-size: 18px;
+    }
+}
