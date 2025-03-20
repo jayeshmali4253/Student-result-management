@@ -49,8 +49,13 @@ echo "Welcome, " . $_SESSION['teacher_name'];
                     <span class="fa fa-angle-down"></span>
                 </a>
                 <div class="dropdown-content" id="1">
+<<<<<<< HEAD
                     <a href="add_classes_bt.php">Add Class</a>
                     <a href="manage_classes_bt.php">Manage Class</a>
+=======
+                    <a href="add_classes.php">Add Class</a>
+                    <a href="manage_classes.php">Manage Class</a>
+>>>>>>> 1dd96387fdafe7563486877c31fa7fa4a4f52cbe
                 </div>
             </li>
             <li class="dropdown" onclick="toggleDisplay('2')">
@@ -58,8 +63,13 @@ echo "Welcome, " . $_SESSION['teacher_name'];
                     <span class="fa fa-angle-down"></span>
                 </a>
                 <div class="dropdown-content" id="2">
+<<<<<<< HEAD
                     <a href="add_students_bt.php">Add Students</a>
                     <a href="manage_students_bt.php">Manage Students</a>
+=======
+                    <a href="add_students.php">Add Students</a>
+                    <a href="manage_students.php">Manage Students</a>
+>>>>>>> 1dd96387fdafe7563486877c31fa7fa4a4f52cbe
                 </div>
             </li>
             <li class="dropdown" onclick="toggleDisplay('3')">
@@ -67,8 +77,13 @@ echo "Welcome, " . $_SESSION['teacher_name'];
                     <span class="fa fa-angle-down"></span>
                 </a>
                 <div class="dropdown-content" id="3">
+<<<<<<< HEAD
                     <a href="add_results_bt.php">Add Results</a>
                     <a href="manage_results_bt.php">Manage Results</a>
+=======
+                    <a href="add_results.php">Add Results</a>
+                    <a href="manage_results.php">Manage Results</a>
+>>>>>>> 1dd96387fdafe7563486877c31fa7fa4a4f52cbe
                 </div>
             </li>
         </ul>

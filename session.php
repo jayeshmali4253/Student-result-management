@@ -1,6 +1,12 @@
 <?php
 include('init.php');
+<<<<<<< HEAD
 
+=======
+session_start();
+
+ 
+>>>>>>> 1dd96387fdafe7563486877c31fa7fa4a4f52cbe
 if (isset($_SESSION['login_user'])) {
     $user_check = $_SESSION['login_user'];
     $ses_sql = mysqli_query($conn, "SELECT userid FROM admin_login WHERE userid = '$user_check'");
