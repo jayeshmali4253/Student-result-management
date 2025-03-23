@@ -6,6 +6,7 @@ if (!isset($_SESSION['teacher_id'])) {
 }
 echo "Welcome, " . $_SESSION['teacher_name'];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
